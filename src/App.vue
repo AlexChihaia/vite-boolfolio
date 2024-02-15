@@ -8,9 +8,13 @@ export default {
   data() {
     return {
       projects: [],
+      types: [],
+      technologies: [],
       baseUrl: "http://127.0.0.1:8000",
       apiUrls: {
         projects: "/api/projects",
+        types: "/api/types",
+        technologies: "/api/technologies",
       },
     };
   },
@@ -24,8 +28,30 @@ export default {
       axios
         .get(this.baseUrl + this.apiUrls.projects)
         .then((response) => {
-          console.log(response);
-          this.projects = response.data;
+          console.log(response.data.projects.data);
+          this.projects = response.data.projects.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    getTypes() {
+      axios
+        .get(this.baseUrl + this.apiUrls.types)
+        .then((response) => {
+          console.log(response.data.data);
+          this.types = response.data.types.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    getTechnologies() {
+      axios
+        .get(this.baseUrl + this.apiUrls.technologies)
+        .then((response) => {
+          console.log(response.data.data);
+          this.technologies = response.data.technologies.data;
         })
         .catch((error) => {
           console.log(error);
@@ -39,7 +65,7 @@ export default {
 </script>
 <template>
   <AppHeader />
-  <AppMain :projects="projects" />
+  <AppMain :projects="projects" :types="types" :technologies="technologies" />
   <AppFooter />
 </template>
 <style scoped></style>

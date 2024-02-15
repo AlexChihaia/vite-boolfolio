@@ -1,7 +1,7 @@
 <script>
 export default {
   name: "Main",
-  props: ["projects"],
+  props: ["projects", "types", "technologies"],
 };
 </script>
 <template>
@@ -19,7 +19,10 @@ export default {
               <p class="card-text">
                 <strong>Project status:</strong> {{ project.status }}
               </p>
-              <p class="card-text"><strong>Project category:</strong> {{}}</p>
+              <p class="card-text">
+                <strong>Project type:</strong>
+                {{ technologies.title }}
+              </p>
               <p class="card-text">
                 <strong>Project category:</strong> {{ project.category }}
               </p>
