@@ -8,7 +8,7 @@ export default {
   <main>
     <div class="container">
       <div class="row my-4">
-        <div class="col g-2" v-for="project in projects">
+        <div class="col-3 g-2" v-for="project in projects">
           <div class="card" style="width: 18rem">
             <img :src="project.thumb" class="card-img-top" alt="..." />
             <div class="card-body">
@@ -21,10 +21,13 @@ export default {
               </p>
               <p class="card-text">
                 <strong>Project type:</strong>
-                {{ technologies.title }}
+                {{ project.type.title }}
               </p>
               <p class="card-text">
-                <strong>Project category:</strong> {{ project.category }}
+                <strong>Project technologies:</strong>
+                <span class="px-2" v-for="technology in project.technologies">
+                  {{ technology.title }}
+                </span>
               </p>
               <a href="#" class="btn btn-warning">More</a>
             </div>

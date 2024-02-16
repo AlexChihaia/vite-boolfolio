@@ -28,14 +28,14 @@ export default {
       axios
         .get(this.baseUrl + this.apiUrls.projects)
         .then((response) => {
-          console.log(response.data.projects.data);
-          this.projects = response.data.projects.data;
+          console.log(response.data.results.data);
+          this.projects = response.data.results.data;
         })
         .catch((error) => {
           console.log(error);
         });
     },
-    getTypes() {
+    /*  getTypes() {
       axios
         .get(this.baseUrl + this.apiUrls.types)
         .then((response) => {
@@ -56,7 +56,7 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-    },
+    }, */
   },
   created() {
     this.getProjects();
