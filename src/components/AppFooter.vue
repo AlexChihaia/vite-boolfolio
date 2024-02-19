@@ -4,7 +4,7 @@ export default {
 };
 </script>
 <template>
-  <footer class="py-3 bg-dark">
+  <footer class="py-3 bg-info-subtle">
     <div class="container text-center">
       <p>Made with love</p>
     </div>
