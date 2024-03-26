@@ -55,6 +55,7 @@ export default {
 
 .card:hover {
   transform: translateY(-5px);
+  cursor: pointer;
 }
 
 .card-img {

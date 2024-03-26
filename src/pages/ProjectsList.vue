@@ -10,6 +10,7 @@ export default {
       responseData: {},
 
       projects: [],
+      loading: false,
     };
   },
 
@@ -19,6 +20,7 @@ export default {
 
   methods: {
     getProjects() {
+      this.loading = true;
       axios
         .get(
           this.store.baseURL +
@@ -35,6 +37,7 @@ export default {
           console.log(response.data);
           this.projects = response.data.results.data;
           this.store.params.page.max_pages = response.data.results.last_page;
+          this.loading = false;
         })
         .catch((error) => {
           console.log(error);
@@ -85,7 +88,17 @@ export default {
 
 <template>
   <body>
-    <div class="container">
+    <div
+      v-if="loading"
+      class="loader container my-5 d-flex justify-content-center"
+    >
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+    <div v-else class="container">
       <h3 class="pt-5 text-center">My projects</h3>
       <ul class="row g-5">
         <li
@@ -129,7 +142,11 @@ export default {
   </body>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+.loader {
+  padding: 350px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 body {
   display: flex;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
