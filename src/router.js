@@ -21,6 +21,7 @@ const router = createRouter({
       path: "/projects/:slug",
       name: "single-project",
       component: SingleProject,
+      props: true,
     },
     {
       path: "/about",

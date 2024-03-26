@@ -22,4 +22,6 @@ export default {
   <router-view></router-view>
   <AppFooter />
 </template>
-<style scoped></style>
+<style scoped>
+
+</style>

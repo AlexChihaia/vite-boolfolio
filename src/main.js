@@ -9,4 +9,14 @@ import * as bootstrap from "bootstrap";
 // Import router
 import { router } from "./router";
 
-createApp(App).use(router).mount("#app");
+/* import the fontawesome core */
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+const app = createApp(App);
+
+app.component('font-awesome-icon', FontAwesomeIcon)
+
+app.use(router).mount("#app");
